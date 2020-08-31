@@ -1,2 +1,2 @@
-# Debug
-ZelFramework Debug
+# ZelFramework Debug
+*by ZelFramework*
