@@ -1,0 +1,13 @@
+{
+    "name": "zelframework/debug",
+    "description": "ZelFramework Debug",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Britzell",
+            "email": "britzel99@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
