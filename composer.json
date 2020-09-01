@@ -9,5 +9,15 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ZelFramework\\Debug\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ZelFramework\\Debug\\Tests\\": "tests/"
+        }
+    }
 }
