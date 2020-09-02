@@ -1,6 +1,6 @@
 <?php
 
-if ($_ENV['APP'] === 'dev') {
+if (true || isset($_ENV['APP']) && $_ENV['APP'] === 'dev') {
 	
 	function d($v)
 	{

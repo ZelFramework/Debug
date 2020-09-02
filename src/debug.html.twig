@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debug</title>
+    <meta name="robots" content="noindex,nofollow">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .mx-auto {
+            width: 56%;
+            margin: auto;
+        }
+
+        .flex {
+            display: flex;
+            align-content: space-between;
+        }
+
+        .flex div {
+            width: 50%;
+        }
+
+        .align-right {
+            text-align: right;
+        }
+
+        .py-2 {
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        /* TODO: Change Color */
+
+        header {
+            font-size: 14px;
+            color: #ddd;
+            background-color: #242424;
+        }
+
+        .errorSection {
+            padding: 32px 0;
+            font-size: 20px;
+            color: #fefefe;
+            background-color: firebrick;
+        }
+
+        .traceSection {
+            min-height: 90vh;
+            padding: 64px 0;
+            font-size: 15px;
+            color: #fefefe;
+            background-color: #34383f;
+        }
+
+        .trace {
+            border: 1px solid #242424;
+            padding: 8px 16px;
+            background-color: #313338;
+        }
+
+        .trace-class {
+            color: firebrick;
+        }
+
+        .trace-function {
+            color: crimson;
+        }
+
+        .trace-args {
+            color: grey;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="flex mx-auto py-2">
+        <div>
+            ZelFramework Debug
+        </div>
+        <div class="align-right">
+            HTTP Response Code {{ httpError }}
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="errorSection">
+        <article class="mx-auto">
+            {{ error.message }} in {{ error.file }} (line: {{ error.line }})
+        </article>
+    </section>
+    <section class="traceSection">
+        <article class="mx-auto">
+            {% for trace in error.trace %}
+                {% set args = [] %}
+                {% for arg in trace.args %}
+                    {% set args = args|merge([arg]) %}
+                {% endfor %}
+
+                <div class="trace">
+                    <span class="trace-class">{{ trace.class }}</span>
+                    <span>{{ trace.type }}</span>
+                    <span class="trace-function">{{ trace.function }}</span>
+                    <span class="trace-args">({{ args|join(', ') }})</span>
+                    <p>in {{ trace.file }} (line: {{ trace.line }})</p>
+                </div>
+
+            {% endfor %}
+        </article>
+    </section>
+</main>
+
+</body>
+</html>

@@ -9,7 +9,12 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "twig/twig": "*"
+    },
+    "require-dev": {
+        "symfony/http-foundation": "^5.1"
+    },
     "autoload": {
         "psr-4": {
             "ZelFramework\\Debug\\": "src/"
@@ -19,5 +24,5 @@
         "psr-4": {
             "ZelFramework\\Debug\\Tests\\": "tests/"
         }
-    }
+    },
 }
