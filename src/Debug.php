@@ -13,6 +13,7 @@ class Debug
 	
 	public static function start()
 	{
+		DebugBar::$startTime = microtime(true);
 		return require_once 'DebugFunction.php';
 	}
 	
